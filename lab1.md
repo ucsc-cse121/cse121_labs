@@ -1,6 +1,6 @@
 # Lab 1 - Lab Setup and trivial tests
 
-Due Date: Friday 10/10/2025
+Due Date: Friday 10/02/2026
 
 The overall objective of this lab is to setup the Pi4 (lab1.1),
 and program two simple ESP32 programs using the Pi4 board
