@@ -1,6 +1,6 @@
 # Lab 5 - Morse Code LED
 
-Due Date: Wednesday 11/12/2025
+Due Date: Wednesday 11/06/2026
 
 This lab is about creating some "LED" communication between the PI4 and the
 ESP32 board.
