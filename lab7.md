@@ -1,6 +1,6 @@
 # Lab 7 - Weather Station
 
-Due Date: Wednesday 11/26/2025
+Due Date: Wednesday 11/20/2026
 
 This lab is worth 20 Points. In this lab, you will use the ESP32 as a weather station that
 communicates with a Raspberry Pi server.
