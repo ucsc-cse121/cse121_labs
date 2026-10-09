@@ -20,7 +20,25 @@ Please submit your report.pdf to the Lab 1 Report Assignment on Gradescope befor
 ### Resources
 
 - [Lab 1.2 Example Code](**https://github.com/espressif/esp-idf/blob/master/examples/get-started/hello_world/main/hello_world_main.c**)
-- [ESP32-c3 RUST Board Datasheet](**https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf**)
+- [ESP32-C3-DevKit-RUST-1 hardware documentation](https://github.com/esp-rs/esp-rust-board/blob/v1.2/README.md)
+- [ESP32-C3-DevKit-RUST-1 schematic](https://github.com/esp-rs/esp-rust-board/blob/v1.2/hardware/esp-rust-board/schematic/esp-rust-board.pdf)
+- [ESP32-C3-DevKit-RUST-2 hardware documentation](https://github.com/esp-rs/esp-rust-board/blob/v2.0-new-version/README.md)
+- [ESP32-C3-DevKit-RUST-2 schematic](https://dl.espressif.com/public/esp32-c3-devkit-rust-2-schematic.pdf)
+
+### ESP32-C3-DevKit-RUST board revisions
+
+CSE121 kits may contain either the ESP32-C3-DevKit-RUST-1 or
+ESP32-C3-DevKit-RUST-2 board. Some onboard peripheral GPIO assignments changed between the two revisions:
+
+| Board revision | I2C SDA | I2C SCL | User LED | WS2812 RGB LED |
+| --- | --- | --- | --- | --- |
+| ESP32-C3-DevKit-RUST-1 | GPIO10 | GPIO8 | GPIO7 | GPIO2 |
+| ESP32-C3-DevKit-RUST-2 | GPIO7 | GPIO8 | GPIO10 | GPIO2 |
+
+The onboard SHTC3 temperature/humidity sensor (`0x70`) and
+ICM-42670-P IMU (`0x68`) share this I2C bus.
+
+Before using an onboard peripheral, determine which board revision you have and use the corresponding GPIO mapping. The pin assignments are also printed on the board silkscreen.
 
 ## Lab1.0: Acquire CSE121 Kit (0 points)
 
@@ -235,8 +253,10 @@ FACE desktop which adds extra user friendly functionality.
 
 ## Lab1.3: Flash LED on ESP32 (5 Points)
 
-The [ESP32C3 board](https://github.com/esp-rs/esp-rust-board?tab=readme-ov-file#ios) has a LED strip connected to GPIO2.
-Write a simple C program that flashes the LED strip on/off once per second. (Do not use GPIO7, as it is reserved for JTAG).
+Both ESP32-C3-DevKit-RUST board revisions have a WS2812 RGB LED
+connected to GPIO2. Write a simple C program that flashes the LED strip on/off once per second.
+
+Do not assume that GPIO7 is a free GPIO. On RUST-1 it is connected to the user LED/MTDO signal, while on RUST-2 it is the SDA line for the onboard I2C peripherals. See the board-revision table above.
 
 The `app_main` should call something like this:
 

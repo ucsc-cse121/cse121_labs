@@ -122,6 +122,27 @@ In a prior lecture we talked about the, SHTC3 temperature and humidity sensor
 contained in the ESP32C3 Rust board, and discussed how the I2C protocol for
 communicating with this device works.
 
+### ESP32-C3-DevKit-RUST board revisions
+
+There are two revisions of the ESP32-C3-DevKit-RUST board used in this course. The onboard SHTC3 temperature/humidity sensor has I2C address `0x70` on both revisions, but the SDA pin differs between the boards:
+
+| Board revision | SDA | SCL | User LED |
+| --- | --- | --- | --- |
+| ESP32-C3-DevKit-RUST-1 | GPIO10 | GPIO8 | GPIO7 |
+| ESP32-C3-DevKit-RUST-2 | GPIO7 | GPIO8 | GPIO10 |
+
+Before writing your I2C initialization code, determine which board revision you have and use the corresponding SDA pin. The SCL pin is GPIO8 on both revisions.
+
+For RUST-2 boards, the pin assignment is also printed on the back of the PCB near the `T+H 0x70` marking. Use the board silkscreen to verify the pin mapping if you are unsure which revision you have.
+
+Hardware documentation:
+
+* [ESP32-C3-DevKit-RUST-1 hardware documentation](https://github.com/esp-rs/esp-rust-board/blob/v1.2/README.md)
+* [ESP32-C3-DevKit-RUST-1 schematic](https://github.com/esp-rs/esp-rust-board/blob/v1.2/hardware/esp-rust-board/schematic/esp-rust-board.pdf)
+* [ESP32-C3-DevKit-RUST-2 hardware documentation](https://github.com/esp-rs/esp-rust-board/blob/v2.0-new-version/README.md)
+* [ESP32-C3-DevKit-RUST-2 schematic](https://dl.espressif.com/public/esp32-c3-devkit-rust-2-schematic.pdf)
+
+
 For this lab, you will have to write a program that reads the temperature and
 humidity, and prints the temperature in degrees C and F and a percentage for
 the humidity once every 2 seconds. The output will look something like this
