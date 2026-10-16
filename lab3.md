@@ -2,16 +2,11 @@
 
 Due Date: Friday 10/16/2026
 
-This lab is worth 20 Points. The overall objective of this task is to develop a
+This lab is worth 15 Points. The overall objective of this task is to develop a
 new C++ library in ESP32 to control the display (I2C) and use the same I2C to
 access the temperature/humidity sensor.
 
-## Lab3.1: Solder pins (5 points)
-
-You must solder the pin headers to the ESP32 board. This for the I2C and Vdd
-control for the display.
-
-## Lab3.2: Display library (10 points)
+## Lab3.1: Display library (10 points)
 
 You can clone the <https://github.com/DFRobot/DFRobot_RGBLCD1602>. This library was
 for Arduino, but we have an ESP32C3, so it does not work. The idea is to
@@ -38,7 +33,7 @@ while (true) {
 }
 ```
 
-## Lab3.3: Integrate humidity and temperature (5 points)
+## Lab3.2: Integrate humidity and temperature (5 points)
 
 Using the display, read the humidity sensor and the temperature. It should show the temperature in Celcius (1st line). The value should be updated each second.
 
@@ -51,5 +46,5 @@ subdirectory and a report.pdf to Gradescope.
 
 Submit the following directories:
 
+* lab3_1/*
 * lab3_2/*
-* lab3_3/*
